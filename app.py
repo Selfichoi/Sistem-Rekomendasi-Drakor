@@ -92,7 +92,7 @@ if st.button("Rekomendasikan 🎉"):
     else:
         st.markdown("### Rekomendasi untukmu:")
         for _, row in result_df.iterrows():
-            st.markdown(f"**🎞️ {row['Title']}**")
+            st.markdown(f"**🎞️ {row['title']}**")
 
             if row['poster']:
                 st.image(row['poster'], width=200)
