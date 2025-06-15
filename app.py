@@ -101,7 +101,7 @@ if poster_url:
     st.image(poster_url, width=200)
 
 
-            st.markdown(f"📌 *Genre:* {row['genre']}")
+            st.markdown(f"📌 *genre:* {row['genre']}")
             if row['rating']:
                 st.markdown(f"⭐ *Rating:* {row['rating']}")
             if row['year']:
