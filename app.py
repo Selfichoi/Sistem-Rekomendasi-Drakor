@@ -8,7 +8,7 @@ import streamlit as st
 st.set_page_config(page_title="Rekomendasi Drakor", page_icon="🎬", layout="centered", initial_sidebar_state="collapsed")
 
 # --- Load Data ---
-df = pd.read_csv("IMBD.csv")
+df = pd.read_csv("kdrama_DATASET.csv")
 df['description'] = df['description'].fillna('')
 df['genre'] = df['genre'].fillna('')
 df['content'] = df['genre'] + " " + df['description']
