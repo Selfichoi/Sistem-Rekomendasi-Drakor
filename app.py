@@ -76,7 +76,7 @@ st.markdown("""
 st.markdown('<div class="title">🎬 Sistem Rekomendasi Drakor</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub">Temukan drama Korea yang mirip dengan favoritmu 🍿</div><br>', unsafe_allow_html=True)
 
-judul_list = df['Title'].sort_values().tolist()
+judul_list = df['title'].sort_values().tolist()
 user_input = st.selectbox("Pilih judul drama Korea yang kamu suka:", options=judul_list)
 
 # --- Genre Filter ---
