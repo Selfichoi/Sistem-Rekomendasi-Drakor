@@ -96,17 +96,18 @@ if st.button("Rekomendasikan 🎉"):
         for _, row in result_df.iterrows():
             st.markdown(f"**🎞️ {row['title']}**")
 
+            # Periksa dan tampilkan poster (jika ada)
             poster_url = row.get('poster', '')
-if poster_url:
-    st.image(poster_url, width=200)
+            if poster_url:
+                st.image(poster_url, width=200)
 
-
-            st.markdown(f"📌 *genre:* {row['genre']}")
-            if row['rating']:
+            # Tampilkan detail lainnya
+            st.markdown(f"📌 *Genre:* {row['genre']}")
+            if row.get('rating', ''):
                 st.markdown(f"⭐ *Rating:* {row['rating']}")
-            if row['year']:
+            if row.get('year', ''):
                 st.markdown(f"🗓️ *Tahun:* {row['year']}")
             st.markdown(f"📝 {row['description'][:400]}...")
-            if row['url']:
+            if row.get('url', ''):
                 st.markdown(f"[🌐 Lihat di MyDramaList]({row['url']})")
             st.markdown("---")
