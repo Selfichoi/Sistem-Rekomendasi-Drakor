@@ -8,6 +8,8 @@ st.set_page_config(page_title="Rekomendasi Drakor", page_icon="🎬", layout="ce
 
 # --- Load Data ---
 df = pd.read_csv("kdrama_DATASET.csv")
+if 'poster' not in df.columns:
+    df['poster'] = ''
 
 # --- Isi Kosong ---
 for col in ['Description', 'Genre', 'Number of Episodes', 'Rank', ' Year of release', 'url']:
@@ -94,8 +96,10 @@ if st.button("Rekomendasikan 🎉"):
         for _, row in result_df.iterrows():
             st.markdown(f"**🎞️ {row['title']}**")
 
-            if row['poster']:
-                st.image(row['poster'], width=200)
+            poster_url = row.get('poster', '')
+if poster_url:
+    st.image(poster_url, width=200)
+
 
             st.markdown(f"📌 *Genre:* {row['genre']}")
             if row['rating']:
