@@ -10,14 +10,14 @@ st.set_page_config(page_title="Rekomendasi Drakor", page_icon="🎬", layout="ce
 df = pd.read_csv("kdrama_DATASET.csv")
 
 # --- Isi Kosong ---
-for col in ['description', 'genre', 'poster', 'rating', 'year', 'url']:
+for col in ['Description', 'Genre', 'Number of Episodes', 'Rank', ' Year of release', 'url']:
     if col in df.columns:
         df[col] = df[col].fillna('')
     else:
         df[col] = ''
 
 # --- Kolom Konten Gabungan untuk TF-IDF ---
-df['content'] = df['genre'] + " " + df['description']
+df['content'] = df['Genre'] + " " + df['Description']
 df['title_lower'] = df['Title'].str.lower().str.strip()
 
 # --- TF-IDF & Cosine Similarity ---
