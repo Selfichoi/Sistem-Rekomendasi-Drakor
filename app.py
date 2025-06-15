@@ -18,7 +18,7 @@ for col in ['description', 'genre', 'poster', 'rating', 'year', 'url']:
 
 # --- Kolom Konten Gabungan untuk TF-IDF ---
 df['content'] = df['genre'] + " " + df['description']
-df['title_lower'] = df['title'].str.lower().str.strip()
+df['title_lower'] = df['Title'].str.lower().str.strip()
 
 # --- TF-IDF & Cosine Similarity ---
 tfidf = TfidfVectorizer(stop_words='english')
@@ -75,7 +75,7 @@ st.markdown("""
 st.markdown('<div class="title">🎬 Sistem Rekomendasi Drakor</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub">Temukan drama Korea yang mirip dengan favoritmu 🍿</div><br>', unsafe_allow_html=True)
 
-judul_list = df['title'].sort_values().tolist()
+judul_list = df['Title'].sort_values().tolist()
 user_input = st.selectbox("Pilih judul drama Korea yang kamu suka:", options=judul_list)
 
 # --- Genre Filter ---
@@ -91,7 +91,7 @@ if st.button("Rekomendasikan 🎉"):
     else:
         st.markdown("### Rekomendasi untukmu:")
         for _, row in result_df.iterrows():
-            st.markdown(f"**🎞️ {row['title']}**")
+            st.markdown(f"**🎞️ {row['Title']}**")
 
             if row['poster']:
                 st.image(row['poster'], width=200)
