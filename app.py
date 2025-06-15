@@ -18,7 +18,8 @@ for col in ['Description', 'Genre', 'Number of Episodes', 'Rank', ' Year of rele
 
 # --- Kolom Konten Gabungan untuk TF-IDF ---
 df['content'] = df['Genre'] + " " + df['Description']
-df['title_lower'] = df['Title'].str.lower().str.strip()
+df.columns = df.columns.str.lower().str.strip()
+df['title_lower'] = df['title'].str.lower().str.strip()
 
 # --- TF-IDF & Cosine Similarity ---
 tfidf = TfidfVectorizer(stop_words='english')
