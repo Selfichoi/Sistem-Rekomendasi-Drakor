@@ -7,7 +7,7 @@ import streamlit as st
 st.set_page_config(page_title="Rekomendasi Drakor", page_icon="🎬", layout="centered")
 
 # --- Load Data ---
-df = pd.read_csv("/content/kdrama_DATASET - Worksheet.csv")
+df = pd.read_csv("kdrama_DATASET.csv")
 
 # --- Bersihkan Nama Kolom ---
 df.columns = df.columns.str.lower().str.strip()
